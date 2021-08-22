@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+
 import './App.css';
 
-function App() {
+const App = () => {
+  let datas =  "";
+  async function getData(){
+    fetch('http://localhost:8000/api/v1/posts')
+    .then(response => response.json())
+    .then(data => datas=data);
+  }
+  window.onload = () =>(getData());
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {datas}
     </div>
   );
 }
