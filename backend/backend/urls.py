@@ -5,8 +5,8 @@ from users.views import UserViewSet as UserView
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'api/users', UserView)
-router.register(r'api/posts', PostView)
+router.register(r'api/v1/users', UserView)
+router.register(r'api/v1/posts', PostView)
 
 
 urlpatterns = [
