@@ -6,7 +6,7 @@ export default class Login extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const data = {
-            username: this.username,
+            email: this.email,
             password: this.password
         }
         axios({
@@ -17,15 +17,12 @@ export default class Login extends Component {
         })
         .then((response) => {
             console.log(response);
-            localStorage.setItem('token', response.data.access)
             window.location.href="/";
         },
         (error) => {
             console.log(error);
         })
     };
-    
-
     render() {
         return (
             <div className="container">
@@ -34,9 +31,9 @@ export default class Login extends Component {
                     <form className="col s12" onSubmit={this.handleSubmit}>
                     <div className="row">
                         <div className="input-field col s6">
-                        <i className="material-icons prefix">account_circle</i>
-                        <input id="icon_prefix" type="text" className="validate" onChange={e => this.username = e.target.value} />
-                        <label for="icon_prefix">Username</label>
+                        <i className="material-icons prefix">email</i>
+                        <input id="icon_prefix" type="email" className="validate" onChange={e => this.email = e.target.value} />
+                        <label for="icon_prefix">Email</label>
                         </div>
                         <div className="input-field col s6">
                         <i className="material-icons prefix">key</i>
