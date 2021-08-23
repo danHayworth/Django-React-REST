@@ -1,16 +1,22 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
 from posts.views import PostViewSet as PostView
 from users.views import UserViewSet, UserView
 from users.views import RegisterView, LoginView, LogoutView
 from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.schemas import get_schema_view
+from rest_framework.documentation import include_docs_urls
 
 router = routers.DefaultRouter()
 router.register(r'api/v1/users', UserViewSet)
 router.register(r'api/v1/posts', PostView)
 
+API_TITLE = 'Posts & Users API'
+API_DESCRIPTION = 'A Web API for creating and viewing posts and users'
+schema_view = get_schema_view(title=API_TITLE)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -18,6 +24,8 @@ urlpatterns = [
     path('login/', LoginView.as_view()),
     path('register/', RegisterView.as_view()),
     path('user/', UserView.as_view()),
-    path('logout/', LogoutView.as_view())
+    path('logout/', LogoutView.as_view()),
+    url(r'schema/', schema_view),
+    url(r'docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION))
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
