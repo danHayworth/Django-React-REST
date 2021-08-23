@@ -1,39 +1,40 @@
 import axios from 'axios';
-import  React, { Component } from 'react';
+import  React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Posts from './components/Posts';
+import Register from './components/Register';
 
-export default class App extends Component {
+const App =()=> {
   
-  componentDidMount = () => {
-    axios.get('user').then(res => {
-      this.setState({
-        user: res.data
-      });
-    },
-    err => {
-      console.log(err)
-    }
-    )
-  };
-  render() { 
-      return (
-        <div className="App">
-        <Navbar />       
-          <Router>
-            <Switch>
-              <Route exact path='/' component={Home}/>
-              <Route exact path='/login' component={Login}/>
-              <Route exact path='/posts' component={Posts}/>
-            </Switch>
-          </Router>
-        </div>
-      );
-    }   
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+
+  const data = fetch('http://localhost:8000/user/')
+  .then(function (response) {
+    console.log(response);
+  })
+  console.log(data);
+
+    return (
+      <div className="App">
+          
+        <Router>
+        <Navbar />   
+          <Switch>
+            <Route exact path='/' component={Home}/>
+            <Route exact path='/login/' component={Login}/>
+            <Route exact path='/posts/' component={Posts}/>
+            <Route exact path='/register/' component={Register}/>
+          </Switch>
+        </Router>
+      </div>
+    );
+       
 }
+export default App;
   
 
 

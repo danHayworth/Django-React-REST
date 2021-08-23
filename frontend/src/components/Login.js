@@ -16,13 +16,18 @@ export default class Login extends Component {
             data: data,
         })
         .then((response) => {
+            const val = Object.values(response.data);
+            const key = Object.keys(response.data);
             console.log(response);
+            window.localStorage.setItem('token', val);
+            document.cookie = [key + '=' + val];
             window.location.href="/";
         },
         (error) => {
             console.log(error);
         })
     };
+    
     render() {
         return (
             <div className="container">
