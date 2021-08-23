@@ -28,25 +28,27 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div classNameName="row">
-                <h3> Login form </h3>
-                <form className="col s12" onSubmit={this.handleSubmit}>
-                <div className="row">
-                    <div className="input-field col s6">
-                    <i className="material-icons prefix">account_circle</i>
-                    <input id="icon_prefix" type="text" className="validate" onChange={e => this.username = e.target.value} />
-                    <label for="icon_prefix">Username</label>
+            <div className="container">
+                <div classNameName="row">
+                    <h3> Login form </h3>
+                    <form className="col s12" onSubmit={this.handleSubmit}>
+                    <div className="row">
+                        <div className="input-field col s6">
+                        <i className="material-icons prefix">account_circle</i>
+                        <input id="icon_prefix" type="text" className="validate" onChange={e => this.username = e.target.value} />
+                        <label for="icon_prefix">Username</label>
+                        </div>
+                        <div className="input-field col s6">
+                        <i className="material-icons prefix">key</i>
+                        <input id="icon_telephone" type="password" className="validate" onChange={e => this.password = e.target.value} />
+                        <label for="icon_telephone">Password</label>
+                        </div>                    
                     </div>
-                    <div className="input-field col s6">
-                    <i className="material-icons prefix">key</i>
-                    <input id="icon_telephone" type="password" className="validate" onChange={e => this.password = e.target.value} />
-                    <label for="icon_telephone">Password</label>
-                    </div>                    
+                    <button className="btn waves-effect waves-light" type="submit" name="action">Login
+                            <i className="material-icons right">send</i>
+                        </button>
+                    </form>
                 </div>
-                <button className="btn waves-effect waves-light" type="submit" name="action">Login
-                        <i className="material-icons right">send</i>
-                    </button>
-                </form>
             </div>
         )
     }

@@ -1,37 +1,39 @@
+import axios from 'axios';
 import  React, { Component } from 'react';
-import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
-
+import Posts from './components/Posts';
 
 export default class App extends Component {
-  state = {
-    token: localStorage.getItem('token')
-  }
- 
-  render() {
-    if (this.state.token !== null) {
+  
+  componentDidMount = () => {
+    axios.get('user').then(res => {
+      this.setState({
+        user: res.data
+      });
+    },
+    err => {
+      console.log(err)
+    }
+    )
+  };
+  render() { 
       return (
-        <>
-        <Navbar />
-        <h2>{this.state.token}</h2>
-        </>
-      )
-    }else {
-      return (
-        <div className="App">       
+        <div className="App">
+        <Navbar />       
           <Router>
             <Switch>
+              <Route exact path='/' component={Home}/>
               <Route exact path='/login' component={Login}/>
+              <Route exact path='/posts' component={Posts}/>
             </Switch>
           </Router>
-          Hi
         </div>
       );
-    }
-    
-  }
-  
+    }   
 }
+  
+
 

@@ -1,26 +1,38 @@
+import  React, {Component} from 'react';
 
-const Navbar = () => {
-    return (
-        <>
-        <nav>
-            <div className="nav-wrapper">
-            <a href="/" className="brand-logo">Logo</a>
-            <a href="/" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-            <ul className="right hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">Javascript</a></li>
-                <li><a href="mobile.html">Mobile</a></li>
-            </ul>
-            </div>
-            <ul className="sidenav" id="mobile-demo">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">Javascript</a></li>
-                <li><a href="mobile.html">Mobile</a></li>
-            </ul>
-        </nav>
-        </>
-    )
+export default class Navbar extends Component {
+    render() {
+        return (
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div className="container-fluid">
+                    <a className="navbar-brand" href="/">Posts App</a>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/">Home</a>
+                            </li>
+                            <li className="nav-item">
+                            <a className="nav-link" href="/posts">Posts</a>
+                            </li>
+                        </ul>
+                    <ul className="d-flex">
+                        <li className="nav-item">
+                            <a className="nav-link" href="/login">Login</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/logout">Logout</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/register">Register</a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </nav>
+        );
+    }
+    
 }
-export default Navbar;
