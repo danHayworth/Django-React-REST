@@ -42,6 +42,12 @@ const Navbar = (props) => {
                 <li className="nav-item">
                     <Link className="nav-link" aria-current="page" to="/posts/">Posts</Link>
                 </li> 
+                <li className="nav-item">
+                    <Link className="nav-link" aria-current="page" to="/users/">Users</Link>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="http://localhost:8000/docs/">API docs</a>
+                </li>  
             </ul>
             <ul>
             <li className="nav-item">
