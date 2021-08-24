@@ -19,7 +19,6 @@ export default class Login extends Component {
             const val = Object.values(response.data);
             const key = Object.keys(response.data);
             console.log(response);
-            window.localStorage.setItem('token', val);
             document.cookie = [key + '=' + val];
             window.location.href="/";
         },
@@ -40,12 +39,12 @@ export default class Login extends Component {
                                 <div className="row">
                                     <div className="input-field col12">
                                     <i className="material-icons prefix text-black">email</i>
-                                    <input id="icon_prefix" type="email" className="validate" onChange={e => this.email = e.target.value} />
+                                    <input id="icon_prefix" type="email" className="validate" onChange={e => this.email = e.target.value} autocomplete="off"/>
                                     <label for="icon_prefix">Email</label>
                                     </div>
                                     <div className="input-field col12">
                                     <i className="material-icons prefix text-black">key</i>
-                                    <input id="icon_telephone" type="password" className="validate" onChange={e => this.password = e.target.value} />
+                                    <input id="icon_telephone" type="password" className="validate" onChange={e => this.password = e.target.value} autocomplete="off" />
                                     <label for="icon_telephone">Password</label>
                                     </div>                    
                                 </div>      
