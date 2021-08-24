@@ -29,7 +29,7 @@ const Navbar = (props) => {
                 <Link className="nav-link navbar-item" to="/register/">Register</Link>
             </li> 
             </ul>
-            </>
+            </> 
         )     
     }
     else {
@@ -47,6 +47,10 @@ const Navbar = (props) => {
             <li className="nav-item">
                 <Link className="nav-link navbar-item" to="/logout/" onClick={logout}>Logout</Link>
             </li>
+            <li className="nav-item accounts">
+                    <i className="material-icons">account_circle</i>
+                    <Link className="nav-link navbar-item" aria-current="page" to="/accounts/">{props.name}</Link>
+                </li> 
             </ul>
             </>
         )
