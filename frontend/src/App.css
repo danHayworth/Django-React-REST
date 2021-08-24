@@ -22,3 +22,10 @@ nav{
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons{
     line-height: 83px !important;
 }
+.black:hover  {
+    color: rgb(228, 152, 122);
+}
+.card{
+    border: none !important;
+    border-radius: 10px !important;
+}

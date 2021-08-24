@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Home =(props) => {
+const Home =() => {
 
     return(
         <div className="home">
-            {props.name ? 'Hi ' +props.name : "Hi, please login."}
+            
         </div>
     )
 
