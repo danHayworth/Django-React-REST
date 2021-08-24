@@ -6,3 +6,12 @@
     margin-left: 30%;
     
 }
+.navbar-item{
+    color:rgba(255,255,255,.55) !important;
+}
+.navbar-item:hover{
+    color:rgba(255,255,255,.55)
+}
+nav{
+    height: 90px !important;
+}
