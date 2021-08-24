@@ -11,8 +11,8 @@ from rest_framework.schemas import get_schema_view
 from rest_framework.documentation import include_docs_urls
 
 router = routers.DefaultRouter()
-router.register('/api/v1/users', UserViewSet)
-router.register('/api/v1/posts', PostView)
+router.register('api/v1/users', UserViewSet)
+router.register('api/v1/posts', PostView)
 
 API_TITLE = 'Posts & Users API'
 API_DESCRIPTION = 'A Web API for creating and viewing posts and users'
