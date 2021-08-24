@@ -19,9 +19,8 @@ const App =()=> {
                 headers: {'Content-Type': 'application/json'},
                 credentials: 'include',
             });
-
             const content = await response.json();
-            console.log(content);
+            console.log(content.name)
             setName(content.name);
         }
     )();
@@ -29,7 +28,7 @@ const App =()=> {
     return (
       <div className="App">       
         <Router>
-        <Navbar />   
+        <Navbar name = {name} setName = {setName}/>   
           <Switch>
             <Route exact path='/' component={()=> <Home name={name}/>}/>
             <Route exact path='/login/' component={()=> <Login setName={setName}/>}/>

@@ -1,62 +1,52 @@
-import  React, { Component } from 'react'
-import axios from 'axios';
+import  React, { useState } from 'react';
 
-export default class Login extends Component {
+const Login = () => {
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
 
-    handleSubmit = e => {
+    const submit = async (e) =>{
         e.preventDefault();
-        const data = {
-            email: this.email,
-            password: this.password
-        }
-        axios({
+        await fetch('http://localhost:8000/login/',{
             method: 'POST',
-            url: 'http://localhost:8000/login/',
-            contentType: 'application/json',
-            data: data,
-        })
-        .then((response) => {
-            const val = Object.values(response.data);
-            const key = Object.keys(response.data);
-            console.log(response);
-            document.cookie = [key + '=' + val];
-            window.location.href="/";
-        },
-        (error) => {
-            console.log(error);
-        })
+            headers: {'Content-Type': 'application/json'},
+            credentials: 'include',
+            body: JSON.stringify({
+                email,
+                password
+            })
+        });
+        window.location.replace('/'); 
     };
-    
-    render() {
-        return (
-            <div className="forms">
-                <div class="card text-white bg-dark mb-3">
-                    <h5 class="card-header">Login form</h5>
-                    <div class="card-body bg-light">
-                        <div className="container">
+             
+    return (
+        <div className="forms">
+            <div className="card text-white bg-dark mb-3">
+                <h5 className="card-header">Login form</h5>
+                <div className="card-body bg-light">
+                    <div className="container">
+                        <div className="row">
+                            <form className="col s12" onSubmit={submit}>
                             <div className="row">
-                                <form className="col s12" onSubmit={this.handleSubmit}>
-                                <div className="row">
-                                    <div className="input-field col12">
-                                    <i className="material-icons prefix text-black">email</i>
-                                    <input id="icon_prefix" type="email" className="validate" onChange={e => this.email = e.target.value} autoComplete="off"/>
-                                    <label for="icon_prefix">Email</label>
-                                    </div>
-                                    <div className="input-field col12">
-                                    <i className="material-icons prefix text-black">key</i>
-                                    <input id="icon_telephone" type="password" className="validate" onChange={e => this.password = e.target.value} autoComplete="off" />
-                                    <label for="icon_telephone">Password</label>
-                                    </div>                    
-                                </div>      
-                                <button className="btn waves-effect waves-light forms-btn" type="submit" name="action">Login
-                                        <i className="material-icons right">send</i>
-                                </button>                                  
-                                </form>
-                            </div>
+                                <div className="input-field col12">
+                                <i className="material-icons prefix text-black">email</i>
+                                <input id="icon_prefix" type="email" className="validate" onChange={e => setEmail(e.target.value)} autoComplete="off"/>
+                                <label for="icon_prefix">Email</label>
+                                </div>
+                                <div className="input-field col12">
+                                <i className="material-icons prefix text-black">key</i>
+                                <input id="icon_telephone" type="password" className="validate" onChange={e => setPassword(e.target.value)} autoComplete="off" />
+                                <label for="icon_telephone">Password</label>
+                                </div>                    
+                            </div>      
+                            <button className="btn waves-effect waves-light forms-btn" type="submit" name="action">Login
+                                    <i className="material-icons right">send</i>
+                            </button>                                  
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
+export default Login

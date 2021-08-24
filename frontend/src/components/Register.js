@@ -3,7 +3,7 @@ import axios from 'axios';
 export default class Register extends Component {
 
     handleSubmit = e => {
-        //e.preventDefault();
+        e.preventDefault();
         const data = {
             name: this.name,
             email: this.email,
@@ -21,6 +21,7 @@ export default class Register extends Component {
                     password: this.password
                 }
             })
+            window.location.replace('/login/')
         } 
           
     };

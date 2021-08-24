@@ -1,7 +1,56 @@
-import  React, {Component} from 'react';
+import  React from 'react';
 import {Link} from 'react-router-dom';
-export default class Navbar extends Component {
-    render() {
+
+
+const Navbar = (props) => {
+    const logout = async() => {
+        await fetch('http://localhost:8000/logout/', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            credentials: 'include'
+        })
+        window.location.replace('/');
+    }
+
+    let navigation;
+    if(props.name === '' || props.name === undefined){
+        navigation = (
+            <>
+            <ul className="navbar-nav me-auto mb-2 mb-sm-0">
+                <li className="nav-item">
+                    <Link to="/" className="nav-link" aria-current="page">Home</Link>                       
+                </li>              
+            </ul>
+            <ul>
+            <li className="nav-item">
+                <Link className="nav-link" to="/login/">Login</Link>
+            </li> 
+            <li className="nav-item">
+                <Link className="nav-link" to="/register/">Register</Link>
+            </li> 
+            </ul>
+            </>
+        )     
+    }
+    else {
+        navigation = (
+            <>
+            <ul className="navbar-nav me-auto mb-2 mb-sm-0">
+                <li className="nav-item">
+                    <Link to="/" className="nav-link" aria-current="page">Home</Link>                       
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" aria-current="page" to="/posts/">Posts</Link>
+                </li> 
+            </ul>
+            <ul>
+            <li className="nav-item">
+                <Link className="nav-link" to="/logout/" onClick={logout}>Logout</Link>
+            </li>
+            </ul>
+            </>
+        )
+    }
         return (
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
                 <div className="container-fluid">
@@ -9,28 +58,13 @@ export default class Navbar extends Component {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-
-                <div className="collapse navbar-collapse" id="navbarsExample03">
-                    <ul className="navbar-nav me-auto mb-2 mb-sm-0">
-                    <li className="nav-item">
-                        <Link to="/" className="nav-link" aria-current="page">Home</Link>                       
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" aria-current="page" to="/posts/">Posts</Link>
-                    </li>    
-                    </ul>
-                    <ul>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/login/">Login</Link>
-                    </li> 
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/register/">Register</Link>
-                    </li> 
-                    </ul>
+                <div className="collapse navbar-collapse" id="navbarsExample03">                 
+                    {navigation}                 
                 </div>
                 </div>
             </nav>
         );
-    }
+
     
 }
+export default Navbar;
