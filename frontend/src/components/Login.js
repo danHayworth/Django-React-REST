@@ -30,26 +30,32 @@ export default class Login extends Component {
     
     render() {
         return (
-            <div className="container">
-                <div classNameName="row">
-                    <h3> Login form </h3>
-                    <form className="col s12" onSubmit={this.handleSubmit}>
-                    <div className="row">
-                        <div className="input-field col s6">
-                        <i className="material-icons prefix">email</i>
-                        <input id="icon_prefix" type="email" className="validate" onChange={e => this.email = e.target.value} />
-                        <label for="icon_prefix">Email</label>
+            <div className="forms">
+                <div class="card text-white bg-dark mb-3">
+                    <h5 class="card-header">Login form</h5>
+                    <div class="card-body bg-light">
+                        <div className="container">
+                            <div classNameName="row">
+                                <form className="col s12" onSubmit={this.handleSubmit}>
+                                <div className="row">
+                                    <div className="input-field col12">
+                                    <i className="material-icons prefix text-black">email</i>
+                                    <input id="icon_prefix" type="email" className="validate" onChange={e => this.email = e.target.value} />
+                                    <label for="icon_prefix">Email</label>
+                                    </div>
+                                    <div className="input-field col12">
+                                    <i className="material-icons prefix text-black">key</i>
+                                    <input id="icon_telephone" type="password" className="validate" onChange={e => this.password = e.target.value} />
+                                    <label for="icon_telephone">Password</label>
+                                    </div>                    
+                                </div>      
+                                <button className="btn waves-effect waves-light forms-btn" type="submit" name="action">Login
+                                        <i className="material-icons right">send</i>
+                                </button>                                  
+                                </form>
+                            </div>
                         </div>
-                        <div className="input-field col s6">
-                        <i className="material-icons prefix">key</i>
-                        <input id="icon_telephone" type="password" className="validate" onChange={e => this.password = e.target.value} />
-                        <label for="icon_telephone">Password</label>
-                        </div>                    
                     </div>
-                    <button className="btn waves-effect waves-light" type="submit" name="action">Login
-                            <i className="material-icons right">send</i>
-                        </button>
-                    </form>
                 </div>
             </div>
         )

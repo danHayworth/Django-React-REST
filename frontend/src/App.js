@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Posts from './components/Posts';
 import Register from './components/Register';
+import './App.css';
 
 const App =()=> {
   
@@ -26,8 +27,7 @@ const App =()=> {
     )();
 });
     return (
-      <div className="App">
-          
+      <div className="App">       
         <Router>
         <Navbar />   
           <Switch>
@@ -38,8 +38,7 @@ const App =()=> {
           </Switch>
         </Router>
       </div>
-    );
-       
+    );      
 }
 export default App;
   
