@@ -34,17 +34,17 @@ export default class Login extends Component {
                     <h5 class="card-header">Login form</h5>
                     <div class="card-body bg-light">
                         <div className="container">
-                            <div classNameName="row">
+                            <div className="row">
                                 <form className="col s12" onSubmit={this.handleSubmit}>
                                 <div className="row">
                                     <div className="input-field col12">
                                     <i className="material-icons prefix text-black">email</i>
-                                    <input id="icon_prefix" type="email" className="validate" onChange={e => this.email = e.target.value} autocomplete="off"/>
+                                    <input id="icon_prefix" type="email" className="validate" onChange={e => this.email = e.target.value} autoComplete="off"/>
                                     <label for="icon_prefix">Email</label>
                                     </div>
                                     <div className="input-field col12">
                                     <i className="material-icons prefix text-black">key</i>
-                                    <input id="icon_telephone" type="password" className="validate" onChange={e => this.password = e.target.value} autocomplete="off" />
+                                    <input id="icon_telephone" type="password" className="validate" onChange={e => this.password = e.target.value} autoComplete="off" />
                                     <label for="icon_telephone">Password</label>
                                     </div>                    
                                 </div>      

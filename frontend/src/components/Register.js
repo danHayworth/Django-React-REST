@@ -31,33 +31,33 @@ export default class Register extends Component {
                     <h5 class="card-header">Registration form</h5>
                     <div class="card-body bg-light">
                         <div className="container">
-                            <div classNameName="row">
+                            <div className="row">
                                 <form className="col 12" onSubmit={this.handleSubmit}>
                                 <div className="row">
                                     <div className="input-field col12">
                                         <i className="material-icons prefix text-black">account_circle</i>
-                                        <input id="icon_name" type="text" className="validate" onChange={e => this.name = e.target.value} autocomplete="off" />
+                                        <input id="icon_name" type="text" className="validate" onChange={e => this.name = e.target.value} autoComplete="off" />
                                         <label for="icon_name">Name</label>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="input-field col12">
                                         <i className="material-icons prefix text-black">email</i>
-                                        <input id="icon_email" type="email" className="validate" onChange={e => this.email = e.target.value} autocomplete="off"/>
+                                        <input id="icon_email" type="email" className="validate" onChange={e => this.email = e.target.value} autoComplete="off"/>
                                         <label for="icon_email">Email</label>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="input-field col12">
                                         <i className="material-icons prefix text-black">key</i>
-                                        <input id="icon_password" type="password" className="validate" onChange={e => this.password = e.target.value} autocomplete="off"/>
+                                        <input id="icon_password" type="password" className="validate" onChange={e => this.password = e.target.value} autoComplete="off"/>
                                         <label for="icon_password">Password</label>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="input-field col12">
                                         <i className="material-icons prefix text-black">key</i>
-                                        <input id="icon_password1" type="password" className="validate" onChange={e => this.password1 = e.target.value} autocomplete="off"/>
+                                        <input id="icon_password1" type="password" className="validate" onChange={e => this.password1 = e.target.value} autoComplete="off"/>
                                         <label for="icon_password1">Password</label>
                                     </div>                     
                                 </div>
