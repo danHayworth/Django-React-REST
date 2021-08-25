@@ -8,7 +8,7 @@ from backend.serializers import UserSerializer
 from .models import CustomUser
 from rest_framework.views import APIView
 import jwt, datetime
-
+from django.conf import settings
 class UserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
@@ -40,7 +40,7 @@ class LoginView(APIView):
             'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
             'iat': datetime.datetime.utcnow()
         }
-        token = jwt.encode(payload, 'secret', algorithm='HS256')
+        token = jwt.encode(payload, settings.SECRET_KEY, algorithm='HS256').decode("utf-8")
 
         response = Response()
         response.set_cookie(key='jwt', value=token, httponly=True)
@@ -58,7 +58,7 @@ class UserView(APIView):
             raise AuthenticationFailed('Unauthenticated')
 
         try:
-            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+            payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
         except jwt.ExpiredSignatureError:
             raise AuthenticationFailed('Unauthenticated')
 
