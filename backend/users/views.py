@@ -10,8 +10,15 @@ import jwt, datetime
 from django.conf import settings
 
 @api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated,])
 def user_list(request):
+    token = request.COOKIES.get('jwt')
+    if not token:
+        raise AuthenticationFailed('Unauthenticated')
+
+    try:
+        jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
+    except jwt.ExpiredSignatureError:
+        raise AuthenticationFailed('Unauthenticated')
 
     if request.method == 'GET':
         users = CustomUser.objects.all()
@@ -26,8 +33,16 @@ def user_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT', 'DELETE'])
-@permission_classes([IsAuthenticated,])
 def user_detail(request, pk):
+    token = request.COOKIES.get('jwt')
+    if not token:
+        raise AuthenticationFailed('Unauthenticated')
+
+    try:
+        jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
+    except jwt.ExpiredSignatureError:
+        raise AuthenticationFailed('Unauthenticated')
+        
     try:
         user = CustomUser.objects.get(pk=pk)
     except CustomUser.DoesNotExist:
