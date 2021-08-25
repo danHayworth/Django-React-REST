@@ -23,7 +23,7 @@ const Register =() =>{
             document.querySelectorAll('.form-control').forEach(innerHtml => innerHtml.className += ' is-valid'); 
             setTimeout(() => {
                 window.location.replace('/login');
-            }, 2000);                           
+            }, 3000);                           
         }else{
             document.querySelectorAll('.form-control').forEach(innerHtml => innerHtml.className += ' is-invalid');
         } 
@@ -35,7 +35,7 @@ const Register =() =>{
         return (
             <div className="forms">
                 <div class="card text-white bg-dark mb-3">
-                    <h5 class="card-header">Registration form</h5>
+                    <h5 class="card-header text-center">Register</h5>
                     <div class="card-body bg-light">
                         <div className="container">
                             <div className="row">
@@ -66,10 +66,13 @@ const Register =() =>{
                                         <i className="material-icons prefix text-black">key</i>
                                         <input id="icon_password1" type="password" className="validate form-control" onChange={e => setPassword2(e.target.value)} autoComplete="off" />
                                         <label for="icon_password1">Retype Password</label>
-                                        <div class="valid-feedback">
-                                            Welcome !
+                                        <div className="valid-feedback">
+                                            Welcome ! You are being redirected !
+                                            <div className="progress teal accent-3">
+                                                <div className="indeterminate"></div>
+                                            </div>
                                         </div>
-                                        <div class="invalid-feedback">
+                                        <div className="invalid-feedback">
                                             Something is wrong, check your input !
                                         </div>
                                             </div>                     
