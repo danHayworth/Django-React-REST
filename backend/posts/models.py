@@ -11,3 +11,10 @@ class Post(models.Model):
     )
     def __str__(self):
         return self.title
+
+class ExtraImages(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, default=None)
+    images = models.FileField(upload_to='images/')
+
+    def __str__(self):
+        return self.post.title
