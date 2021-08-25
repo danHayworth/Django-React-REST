@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
-from posts.views import PostViewSet as PostView
+from posts.views import post_list, post_detail
 from users.views import user_list, UserView, user_detail
 from users.views import RegisterView, LoginView, LogoutView
 from django.conf import settings
@@ -16,9 +16,10 @@ schema_view = get_schema_view(title=API_TITLE)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/users', user_list),
-    path('api/v1/users/<int:pk>', user_detail),
-    path('api/v1/posts', PostView),
+    path('users/', user_list),
+    path('users/<int:pk>', user_detail),
+    path('posts/', post_list),
+    path('posts/<int:pk>', post_detail),
     path('login/', LoginView.as_view()),
     path('register/', RegisterView.as_view()),
     path('user/', UserView.as_view()),
