@@ -1,6 +1,5 @@
 from rest_framework import status
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, authentication_classes
 from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
 from backend.serializers import UserSerializer
@@ -8,17 +7,12 @@ from .models import CustomUser
 from rest_framework.views import APIView
 import jwt, datetime
 from django.conf import settings
+from rest_framework import authentication
+from backend.authentication import Auth
 
 @api_view(['GET', 'POST'])
+@authentication_classes([Auth,])
 def user_list(request):
-    token = request.COOKIES.get('jwt')
-    if not token:
-        raise AuthenticationFailed('Unauthenticated')
-
-    try:
-        jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
-    except jwt.ExpiredSignatureError:
-        raise AuthenticationFailed('Unauthenticated')
 
     if request.method == 'GET':
         users = CustomUser.objects.all()
@@ -33,16 +27,9 @@ def user_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT', 'DELETE'])
+@authentication_classes([Auth,])
 def user_detail(request, pk):
-    token = request.COOKIES.get('jwt')
-    if not token:
-        raise AuthenticationFailed('Unauthenticated')
 
-    try:
-        jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
-    except jwt.ExpiredSignatureError:
-        raise AuthenticationFailed('Unauthenticated')
-        
     try:
         user = CustomUser.objects.get(pk=pk)
     except CustomUser.DoesNotExist:
@@ -124,3 +111,5 @@ class LogoutView(APIView):
             'message': 'success'
         }
         return response
+
+
