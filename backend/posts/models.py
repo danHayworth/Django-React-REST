@@ -4,7 +4,7 @@ from django.conf import settings
 class Post(models.Model):
     title = models.CharField(max_length=150)
     content = models.TextField(max_length=500)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='images/')
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, 
         on_delete=models.CASCADE
