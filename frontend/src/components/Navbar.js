@@ -10,6 +10,7 @@ const Navbar = (props) => {
             credentials: 'include'
         })
         window.location.replace('/');
+        document.cookie.replace('jwt', '')
     }
 
     let navigation;
