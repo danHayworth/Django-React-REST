@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const Register =() =>{
     const[name, setName] = useState('');
+    const[username, setUsername] = useState('');
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
     const[password2, setPassword2] = useState('');    
@@ -18,6 +19,7 @@ const Register =() =>{
                 contentType: 'application/json',
                 data: {
                     name: name,
+                    username: username,
                     email: email,
                     password: password
                 }
@@ -47,6 +49,13 @@ const Register =() =>{
                                         <i className="material-icons prefix text-black">account_circle</i>
                                         <input id="icon_name" type="text" className="validate form-control" onChange={e => setName(e.target.value)} autoComplete="off" />
                                         <label for="icon_name">Name</label>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="input-field col12">
+                                        <i className="material-icons prefix text-black">account_circle</i>
+                                        <input id="icon_uername" type="text" className="validate form-control" onChange={e => setUsername(e.target.value)} autoComplete="off" />
+                                        <label for="icon_username">Username</label>
                                     </div>
                                 </div>
                                 <div className="row">
