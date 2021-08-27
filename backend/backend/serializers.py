@@ -1,5 +1,5 @@
 from users.models import CustomUser
-from posts.models import Post
+from posts.models import Post, PostImages
 from rest_framework import serializers
 
 class UserSerializer(serializers.ModelSerializer):
@@ -18,7 +18,17 @@ class UserSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
 
+
+class PostImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PostImages
+        fields = ['images']
+
+
 class PostSerializer(serializers.ModelSerializer):
+    images = PostImageSerializer()
     class Meta: 
         model = Post
-        fields =['id', 'title', 'content', 'image', 'user']
+        fields =['id', 'title', 'content', 'image', 'user', 'images']
+
+
