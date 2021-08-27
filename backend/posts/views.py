@@ -6,7 +6,7 @@ from rest_framework import status
 from backend.serializers import PostSerializer
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 @authentication_classes([Auth, ])
 def post_list(request):
     if request.method == 'GET':
@@ -14,15 +14,8 @@ def post_list(request):
         serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
 
-    elif request.method == 'POST':
-        serializer = PostSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
-@api_view(['GET', 'PUT', 'DELETE'])
+@api_view(['GET', 'POST', 'PUT', 'DELETE'])
 @authentication_classes([Auth, ])
 def post_detail(request, pk):
     try:
@@ -34,13 +27,22 @@ def post_detail(request, pk):
         serializer = PostSerializer(post)
         return Response(serializer.data)
 
-    if request.method == 'PUT':
+    elif request.method == 'POST':
+        serializer = PostSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'PUT':
         serializer = PostSerializer(post, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    if request.method == 'DELETE':
+    elif request.method == 'DELETE':
         post.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+

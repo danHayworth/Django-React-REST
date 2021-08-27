@@ -34,4 +34,11 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ['id', 'title', 'content', 'image', 'user', 'images']
 
+    def create(self, validated_data):
+        images_data = validated_data.pop('images')
+        post = Post.objects.create(**validated_data)
+        for image_data in images_data:
+            PostImages.objects.create(post=post, **image_data)
+        return post
+
 
