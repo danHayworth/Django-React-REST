@@ -20,25 +20,16 @@ class UserSerializer(serializers.ModelSerializer):
         return instance
 
 
-class PostImageSerializer(serializers.ModelSerializer):
+class PostImageSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = PostImages
         fields = ['images']
 
-
 class PostSerializer(serializers.ModelSerializer):
-    images = serializers.PrimaryKeyRelatedField(queryset=PostImages.objects.all(), many=True)
+    images = PostImageSerializer(many = True, required = False)
 
     class Meta:
         model = Post
         fields = ['id', 'title', 'content', 'image', 'user', 'images']
-
-    def create(self, validated_data):
-        images_data = validated_data.pop('images')
-        post = Post.objects.create(**validated_data)
-        for image_data in images_data:
-            PostImages.objects.create(post=post, **image_data)
-        return post
-
-
+ 
