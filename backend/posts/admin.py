@@ -8,7 +8,7 @@ class PostImage(admin.StackedInline):
 
 class PostAdmin(admin.ModelAdmin):
     inlines = [PostImage]
-    fields = ['title', 'content', 'user', 'image']
+    fields = ['title', 'content', 'user']
 
 
 admin.site.register(Post, PostAdmin)
