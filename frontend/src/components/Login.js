@@ -36,21 +36,18 @@ const Login = () => {
                     <div className="container">
                         <div className="row">
                             <form className="col s12" onSubmit={submit} onClick={infoError}>
-                            <div className="row">
-                                
+                            <div className="row">                                
                                 <div className="input-field col12">
                                 <i className="material-icons prefix text-black">email</i>
                                 <input id="icon_prefix" type="email" className="validate form-control" onChange={e => setEmail(e.target.value)} autoComplete="off" />
-                                <label htmlFor="icon_prefix">Email</label>
-                                
+                                <label htmlFor="icon_prefix">Email</label>                           
                                 </div>
                                 <div className="input-field col12">
                                 <i className="material-icons prefix text-black">key</i>
                                 <input id="icon_telephone" type="password" className="validate form-control" onChange={e => setPassword(e.target.value)} autoComplete="off" />
                                 <label htmlFor="icon_telephone">Password</label>
                                 <div className="valid-feedback">
-                                    Welcome ! You are being redirected !
-                                    
+                                    Welcome ! You are being redirected !                                   
                                     <div className="progress teal accent-3">
                                         <div className="indeterminate"></div>
                                     </div>
