@@ -10,8 +10,8 @@ from backend.serializers import PostSerializer
 @authentication_classes([Auth, ])
 def post_list(request):
     if request.method == 'GET':
-        users = Post.objects.all()
-        serializer = PostSerializer(users, many=True)
+        posts = Post.objects.all()
+        serializer = PostSerializer(posts, many=True)
         return Response(serializer.data)
 
     elif request.method == 'POST':

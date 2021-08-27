@@ -2,10 +2,11 @@ from users.models import CustomUser
 from posts.models import Post, PostImages
 from rest_framework import serializers
 
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields =['id', 'name', 'username', 'email', 'password']
+        fields = ['id', 'name', 'username', 'email', 'password']
         extra_kwargs = {
             'password': {'write_only': True}
         }
@@ -20,15 +21,17 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class PostImageSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = PostImages
         fields = ['images']
 
 
 class PostSerializer(serializers.ModelSerializer):
-    images = PostImageSerializer()
-    class Meta: 
+    images = serializers.PrimaryKeyRelatedField(queryset=PostImages.objects.all(), many=True)
+
+    class Meta:
         model = Post
-        fields =['id', 'title', 'content', 'image', 'user', 'images']
+        fields = ['id', 'title', 'content', 'image', 'user', 'images']
 
 
