@@ -5,10 +5,12 @@ from rest_framework.exceptions import AuthenticationFailed
 from backend.serializers import UserSerializer
 from .models import CustomUser
 from rest_framework.views import APIView
-import jwt, datetime
+import jwt
+import datetime
 from django.conf import settings
 from rest_framework import authentication
 from backend.authentication import Auth
+
 
 @api_view(['GET', 'POST'])
 @authentication_classes([Auth,])
@@ -25,6 +27,7 @@ def user_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET', 'PUT', 'DELETE'])
 @authentication_classes([Auth,])
@@ -50,12 +53,14 @@ def user_detail(request, pk):
         user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+
 class RegisterView(APIView):
     def post(self, request, *args, **kwargs):
         serializer = UserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+
 
 class LoginView(APIView):
     def post(self, request):
@@ -84,6 +89,7 @@ class LoginView(APIView):
         }
 
         return response
+
 
 class UserView(APIView):
     def get(self, request):

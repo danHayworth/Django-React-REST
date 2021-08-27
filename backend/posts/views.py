@@ -7,9 +7,8 @@ from backend.serializers import PostSerializer
 
 
 @api_view(['GET', 'POST'])
-@authentication_classes([Auth,])
+@authentication_classes([Auth, ])
 def post_list(request):
-
     if request.method == 'GET':
         users = Post.objects.all()
         serializer = PostSerializer(users, many=True)
@@ -22,10 +21,10 @@ def post_list(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 @api_view(['GET', 'PUT', 'DELETE'])
-@authentication_classes([Auth,])
+@authentication_classes([Auth, ])
 def post_detail(request, pk):
-    
     try:
         post = Post.objects.get(pk=pk)
     except Post.DoesNotExist:

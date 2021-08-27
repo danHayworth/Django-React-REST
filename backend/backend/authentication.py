@@ -3,6 +3,7 @@ from django.conf import settings
 from rest_framework import authentication
 import jwt
 
+
 class Auth(authentication.BaseAuthentication):
     def authenticate(self, request):
         token = request.COOKIES.get('jwt')
