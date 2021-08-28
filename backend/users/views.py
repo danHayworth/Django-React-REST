@@ -8,7 +8,6 @@ from rest_framework.views import APIView
 import jwt
 import datetime
 from django.conf import settings
-from rest_framework import authentication
 from backend.authentication import Auth
 
 
@@ -83,7 +82,7 @@ class LoginView(APIView):
         token = jwt.encode(payload, settings.SECRET_KEY, algorithm='HS256')
 
         response = Response()
-        response.set_cookie(key='jwt', value=token, httponly=True)
+        response.set_cookie(key='jwt', value=token)
         response.data = {
             'jwt': token
         }

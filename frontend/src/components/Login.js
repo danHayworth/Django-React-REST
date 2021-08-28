@@ -14,7 +14,9 @@ const Login = () => {
                 email,
                 password
             })
-        }).then(response => response.status)
+        })
+        .then(response => response.status)
+        
         if (response === 200 && email !== '' && password !== ''){
             document.querySelectorAll('.form-control').forEach(innerHtml => innerHtml.className += ' is-valid');          
             setTimeout(() => {

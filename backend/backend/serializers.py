@@ -22,11 +22,6 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    image_1 = serializers.ImageField(required=False, use_url=True)
-    image_2 = serializers.ImageField(required=False)
-    image_3 = serializers.ImageField(required=False)
-    image_4 = serializers.ImageField(required=False)
-    image_5 = serializers.ImageField(required=False)
     class Meta:
         model = Post
         fields = '__all__'

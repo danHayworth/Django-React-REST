@@ -26,4 +26,5 @@ urlpatterns = [
     path('logout/', LogoutView.as_view()),
     url('docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION))
 
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

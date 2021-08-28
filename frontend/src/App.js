@@ -19,19 +19,18 @@ const App =()=> {
                 credentials: 'include',
             });
             const content = await response.json();
-            console.log(content.name)
             setName(content.name);
         }
     )();
-});
+  });
     return (
-      <div className="App">       
+      <div className="App" onLoad={() => setName()}>       
         <Router>
         <Navbar name = {name} setName = {setName}/>   
           <Switch>
             <Route exact path='/' component={()=> <Home name={name}/>}/>
             <Route exact path='/login/' component={()=> <Login setName={setName}/>}/>
-            <Route exact path='/posts/' component={Posts}/>
+            <Route exact path='/posts/' component={() => <Posts name={name}/>}/>
             <Route exact path='/register/' component={Register}/>
           </Switch>
         </Router>

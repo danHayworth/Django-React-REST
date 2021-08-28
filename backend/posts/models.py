@@ -1,7 +1,6 @@
 from django.db import models
 from django.conf import settings
 
-
 class Post(models.Model):
     title = models.CharField(max_length=150)
     content = models.TextField(max_length=500)
@@ -9,11 +8,11 @@ class Post(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
-    image_1 = models.ImageField(upload_to='images/')
-    image_2 = models.ImageField(upload_to='images/')
-    image_3 = models.ImageField(upload_to='images/')
-    image_4 = models.ImageField(upload_to='images/')
-    image_5 = models.ImageField(upload_to='images/')
+    image_1 = models.FileField(upload_to='images/', blank=True)
+    image_2 = models.FileField(upload_to='images/', blank=True)
+    image_3 = models.FileField(upload_to='images/', blank=True)
+    image_4 = models.FileField(upload_to='images/', blank=True)
+    image_5 = models.FileField(upload_to='images/', blank=True)
 
     def __str__(self):
         return self.title

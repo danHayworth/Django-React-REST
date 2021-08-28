@@ -14,3 +14,5 @@ class Auth(authentication.BaseAuthentication):
             jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
         except jwt.ExpiredSignatureError:
             raise AuthenticationFailed('Unauthenticated')
+
+    
