@@ -1,5 +1,5 @@
 from users.models import CustomUser
-from posts.models import Post, PostImages
+from posts.models import Post
 from rest_framework import serializers
 
 
@@ -20,23 +20,17 @@ class UserSerializer(serializers.ModelSerializer):
         return instance
 
 
-class PostImageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = PostImages
-        fields = ['images']
 
 class PostSerializer(serializers.ModelSerializer):
-    images = PostImageSerializer(many = True)
-
+    image_1 = serializers.ImageField(required=False, use_url=True)
+    image_2 = serializers.ImageField(required=False)
+    image_3 = serializers.ImageField(required=False)
+    image_4 = serializers.ImageField(required=False)
+    image_5 = serializers.ImageField(required=False)
     class Meta:
         model = Post
-        fields = ['id', 'title', 'content', 'user', 'images']
+        fields = '__all__'
 
-    def create(self, validated_data):
-        images_data = validated_data.pop['images']
-        post = Post.objects.create(**validated_data)
-        for img in images_data:
-            PostImages.objects.create(post=post, **img)
-        return post
- 
+
+
 

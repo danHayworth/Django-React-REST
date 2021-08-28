@@ -1,14 +1,9 @@
 from django.contrib import admin
-from .models import Post, PostImages
-
-
-class PostImage(admin.StackedInline):
-    model = PostImages
-
+from .models import Post
 
 class PostAdmin(admin.ModelAdmin):
-    inlines = [PostImage]
-    fields = ['title', 'content', 'user']
+    class Meta:
+        model = Post
 
 
 admin.site.register(Post, PostAdmin)
