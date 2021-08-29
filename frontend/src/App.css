@@ -29,3 +29,7 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons{
     border: none !important;
     border-radius: 10px !important;
 }
+.imagini{
+    width: 100px !important;
+    height: 100px !important;
+}

@@ -22,7 +22,7 @@ const App =()=> {
             setName(content.name);
         }
     )();
-  });
+  }, [name]);
     return (
       <div className="App" onLoad={() => setName()}>       
         <Router>
@@ -30,7 +30,7 @@ const App =()=> {
           <Switch>
             <Route exact path='/' component={()=> <Home name={name}/>}/>
             <Route exact path='/login/' component={()=> <Login setName={setName}/>}/>
-            <Route exact path='/posts/' component={() => <Posts name={name}/>}/>
+            <Route exact path='/posts/' component={Posts}/>
             <Route exact path='/register/' component={Register}/>
           </Switch>
         </Router>

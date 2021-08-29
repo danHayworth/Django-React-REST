@@ -8,7 +8,7 @@ class Post(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
-    image_1 = models.FileField(upload_to='images/', blank=True)
+    main_image = models.FileField(upload_to='images/', blank=True)
     image_2 = models.FileField(upload_to='images/', blank=True)
     image_3 = models.FileField(upload_to='images/', blank=True)
     image_4 = models.FileField(upload_to='images/', blank=True)
