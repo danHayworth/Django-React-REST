@@ -64,6 +64,7 @@ const Navbar = (props) => {
         )
     }
         return (
+            <div className="header">
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
                 <div className="container-fluid">
                 <a className="navbar-brand" href="/">Posts & Users</a>
@@ -75,6 +76,7 @@ const Navbar = (props) => {
                 </div>
                 </div>
             </nav>
+            </div>
         );
 
     
