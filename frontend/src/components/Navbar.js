@@ -12,7 +12,6 @@ const Navbar = (props) => {
         window.location.replace('/');
         document.cookie.replace('jwt', '')
     }
-
     let navigation;
     if(props.name === '' || props.name === undefined){
         navigation = (
@@ -44,7 +43,7 @@ const Navbar = (props) => {
                     <Link className="nav-link" aria-current="page" to="/posts/">Posts</Link>
                 </li> 
                 <li className="nav-item">
-                    <a className="nav-link" aria-current="page" href="http://localhost:8000/docs/">API docs</a>
+                    <a className="nav-link " aria-current="page" href="http://localhost:8000/docs/" data-toggle="tooltip" data-placement="bottom" title="This will take you to a different web app.">API docs</a>
                 </li>  
             </ul>
             <ul>
@@ -56,7 +55,9 @@ const Navbar = (props) => {
                     <Link className="nav-link navbar-item" aria-current="page" to={"/account/" + props.id}>{props.name}</Link>
                 </li> 
             <li className="nav-item">
-                <button class="btn-floating btn-large waves-effect waves-light turqoise"><p class="addingBtn ">+</p></button>
+                <a class="btn-floating btn-large waves-effect waves-light turqoise" type="button" href="/publish">                                   
+                    <p class="addingBtn ">+</p>   
+                </a>                               
             </li>
             </ul>
             </>

@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Posts from './components/Posts';
 import Post from './components/Post';
+import Publish from './components/Publish';
 import Account from './components/Account';
 import Register from './components/Register';
 import './App.css';
@@ -38,6 +39,7 @@ const App =()=> {
             <Route exact path='/posts/:id' component={Post}/>
             <Route exact path='/register' component={Register}/>
             <Route exact path='/account/:id' component={()=> <Account id={id} />}/>
+            <Route exact path='/publish' component={Publish}/>
           </Switch>
         </Router>
       </div>
