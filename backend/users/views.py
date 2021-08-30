@@ -29,7 +29,6 @@ def user_list(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-@authentication_classes([Auth,])
 def user_detail(request, pk):
 
     try:
