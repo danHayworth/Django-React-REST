@@ -24,7 +24,9 @@ class UserSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = '__all__'
+        fields = ['id', 'title', 'content','user', 'main_image', 'image_2', 'image_3', 'image_4', 'image_5']
+
+    
 
 
 

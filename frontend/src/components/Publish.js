@@ -1,23 +1,41 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 
 const Publish = () => {
     const[title, setTitle] = useState('');
-    const[content, setContent] =useState('');
+    const[content, setContent] = useState('');
+    const[user, setUser] = useState('');
     const[main, setMain] = useState('');
     const[im2, setIm2] = useState('');
     const[im3, setIm3] = useState('');
     const[im4, setIm4] = useState('');
     const[im5, setIm5] = useState('');
 
+    const handleSubmit = e => {
+        e.preventDefault();
+        let form_data = new FormData();
+        form_data.append('title', title);
+        form_data.append('content', content);
+        form_data.append('user', 1)
+        form_data.append('main_image', main, main.name);
+        let url = "http://localhost:8000/posts/";
+        axios.post(url, form_data, {
+            headers: {'Content-Type': 'multipart/form-data'},
+        })
+        .then(res => {
+            console.log(res.data);
+          })
+          .catch(err => console.log(err))
+    }
+   
     return(
         <div className="">
-
                 <div class="card text-white bg-dark col-6 detailCard">
                     <h5 class="card-header text-center">Add post</h5>
                     <div class="card-body bg-light">
                         <div className="container">
                             <div className="row">
-                                <form className="col 12" >
+                                <form className="col 12" onSubmit={handleSubmit} >
                                 <div className="row">
                                     <div className="input-field col12">
                                         <input id="icon_name" type="text" className="validate form-control" onChange={e => setTitle(e.target.value)} autoComplete="off" />
@@ -35,35 +53,35 @@ const Publish = () => {
                                 <label>Main photo:</label>
                                     <div className="input-field col12">
                                         
-                                        <input type="file" class="form-control" id="inputGroupFile02" onChange={e => setMain(e.target.value)}/>
+                                        <input type="file" accept="image/png, image/jpeg" class="form-control" id="inputGroupFile02" onChange={e => setMain(e.target.files[0])}/>
                                         
                                     </div>
                                 </div>
                                 <div className="row">
                                 <label>Extra photo:</label>
                                     <div className="input-field col12">
-                                        <input type="file" class="form-control" id="inputGroupFile02" onChange={e => setIm2(e.target.value)}/>
+                                        <input type="file" accept="image/png, image/jpeg" class="form-control" id="inputGroupFile02" onChange={e => setIm2(e.target.files[0])}/>
                                        
                                     </div>
                                 </div>
                                 <div className="row">
                                 <label>Extra photo:</label>
                                     <div className="input-field col12">
-                                        <input type="file" class="form-control" id="inputGroupFile02" onChange={e => setIm3(e.target.value)}/>
+                                        <input type="file" accept="image/png, image/jpeg" class="form-control" id="inputGroupFile02" onChange={e => setIm3(e.target.files[0])}/>
                                        
                                     </div>
                                 </div>
                                 <div className="row">
                                 <label>Extra photo:</label>
                                     <div className="input-field col12">
-                                        <input type="file" class="form-control" id="inputGroupFile02" onChange={e => setIm4(e.target.value)}/>
+                                        <input type="file" accept="image/png, image/jpeg" class="form-control" id="inputGroupFile02" onChange={e => setIm4(e.target.files[0])}/>
                                        
                                     </div>
                                 </div>
                                 <div className="row">
                                 <label>Extra photo:</label>
                                     <div className="input-field col12">
-                                        <input type="file" class="form-control" id="inputGroupFile02" onChange={e => setIm5(e.target.value)}/>
+                                        <input type="file" accept="image/png, image/jpeg" class="form-control" id="inputGroupFile02" onChange={e => setIm5(e.target.files[0])}/>
                                        
                                     </div>
                                 </div>
