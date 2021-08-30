@@ -5,12 +5,14 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Posts from './components/Posts';
 import Post from './components/Post';
+import Account from './components/Account';
 import Register from './components/Register';
 import './App.css';
 
 const App =()=> {
   
   const [name, setName] = useState('');
+  const [id, setId] = useState('');
 
   useEffect(() => {
     (
@@ -21,19 +23,21 @@ const App =()=> {
             });
             const content = await response.json();
             setName(content.name);
+            setId(content.id);
         }
     )();
-  }, [name]);
+  }, [name, id]);
     return (
       <div className="App" onLoad={() => setName()}>       
         <Router>
-        <Navbar name = {name} setName = {setName}/>   
+        <Navbar name = {name} id = {id}/>   
           <Switch>
             <Route exact path='/' component={()=> <Home name={name}/>}/>
             <Route exact path='/login' component={()=> <Login setName={setName}/>}/>
             <Route exact path='/posts' component={Posts}/>
             <Route exact path='/posts/:id' component={Post}/>
             <Route exact path='/register' component={Register}/>
+            <Route exact path='/account/:id' component={()=> <Account id={id} />}/>
           </Switch>
         </Router>
       </div>

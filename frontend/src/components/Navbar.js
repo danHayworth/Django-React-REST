@@ -44,9 +44,6 @@ const Navbar = (props) => {
                     <Link className="nav-link" aria-current="page" to="/posts/">Posts</Link>
                 </li> 
                 <li className="nav-item">
-                    <Link className="nav-link" aria-current="page" to="/users/">Users</Link>
-                </li>
-                <li className="nav-item">
                     <a className="nav-link" aria-current="page" href="http://localhost:8000/docs/">API docs</a>
                 </li>  
             </ul>
@@ -56,8 +53,11 @@ const Navbar = (props) => {
             </li>
             <li className="nav-item accounts">
                     <i className="material-icons">account_circle</i>
-                    <Link className="nav-link navbar-item" aria-current="page" to="/accounts/">{props.name}</Link>
+                    <Link className="nav-link navbar-item" aria-current="page" to={"/account/" + props.id}>{props.name}</Link>
                 </li> 
+            <li className="nav-item">
+                <button class="btn-floating btn-large waves-effect waves-light turqoise"><p class="addingBtn ">+</p></button>
+            </li>
             </ul>
             </>
         )
