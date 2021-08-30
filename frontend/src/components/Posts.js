@@ -30,8 +30,8 @@ export default class Posts extends Component {
                     <div key={post.id} class="card" style={{width: '18rem'}} >
                         <img src={baseUrl + post.main_image} class="card-img-top" alt="..." />
                         <div class="card-body">
-                            <h5 class="card-title">{post.title}</h5>
-                            <p class="card-text">{post.content}</p>
+                            <h6 class="card-title">{post.title}</h6>
+                            <p class="card-text d-inline-block col-12 text-truncate ">{post.content}</p>
                             <button class="btn btn-primary" ><Link to={"" + post.id} key={post.id}>Read</Link></button>
                         </div>
                     </div>

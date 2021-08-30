@@ -33,3 +33,9 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons{
     width: 100px !important;
     height: 100px !important;
 }
+a {
+    color: aliceblue !important;
+}
+.card-body h6 {
+    font-size: larger !important;
+}
