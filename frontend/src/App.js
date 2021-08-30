@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Posts from './components/Posts';
+import Post from './components/Post';
 import Register from './components/Register';
 import './App.css';
 
@@ -29,9 +30,10 @@ const App =()=> {
         <Navbar name = {name} setName = {setName}/>   
           <Switch>
             <Route exact path='/' component={()=> <Home name={name}/>}/>
-            <Route exact path='/login/' component={()=> <Login setName={setName}/>}/>
-            <Route exact path='/posts/' component={Posts}/>
-            <Route exact path='/register/' component={Register}/>
+            <Route exact path='/login' component={()=> <Login setName={setName}/>}/>
+            <Route exact path='/posts' component={Posts}/>
+            <Route exact path='/posts/:id' component={Post}/>
+            <Route exact path='/register' component={Register}/>
           </Switch>
         </Router>
       </div>
