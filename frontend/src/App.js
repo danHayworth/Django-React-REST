@@ -5,7 +5,6 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Posts from './components/Posts';
 import Post from './components/Post';
-import Footer from './components/Footer';
 import Publish from './components/Publish';
 import Account from './components/Account';
 import Register from './components/Register';
@@ -30,11 +29,10 @@ const App =()=> {
     )();
   }, [name, id]);
     return (
-      <div className="App" onLoad={() => setName()}>       
+      <div className="App main" onLoad={() => setName()}>       
         <Router>
         <Navbar name = {name} id = {id}/>   
           <Switch>
-          <div className="main">
             <Route exact path='/' component={()=> <Home name={name}/>}/>
             <Route exact path='/login' component={()=> <Login setName={setName}/>}/>
             <Route exact path='/posts' component={Posts}/>
@@ -42,10 +40,8 @@ const App =()=> {
             <Route exact path='/register' component={Register}/>
             <Route exact path='/account/:id' component={()=> <Account id={id} />}/>
             <Route exact path='/publish' component={()=> <Publish id={id} />}/>
-          </div>
           </Switch>
         </Router>
-        <Footer />
       </div>
     );      
 }

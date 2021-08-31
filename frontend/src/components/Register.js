@@ -86,8 +86,8 @@ const Register =() =>{
                                         <div className="invalid-feedback">
                                             Something is wrong, check your input !
                                         </div>
-                                            </div>                     
-                                        </div>                               
+                                    </div>                     
+                                </div>                               
                                 <button className="btn waves-effect waves-light forms-btn black" type="submit" name="action">Send
                                         <i className="material-icons right">send</i>
                                     </button>

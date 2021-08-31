@@ -40,17 +40,22 @@ const Publish = (props) => {
                 window.location.replace('/posts/');
             }, 3000)
         )
-        .catch(err => console.log(err))
+        .catch(
+            err => console.log(err),
+            document.querySelectorAll('.form-control').forEach(innerHtml => innerHtml.className += ' is-invalid'))
+    }
+    const infoError = async function(){
+        document.querySelectorAll('.form-control').forEach(innerHtml => innerHtml.className = 'form-control');
     }
    
     return(
         <div className="">
-                <div className="card text-white bg-dark col-6 detailCard">
+                <div className="card text-white bg-dark col-5 detailCard">
                     <h5 className="card-header text-center">Add post</h5>
                     <div className="card-body bg-light">
                         <div className="container">
                             <div className="row">
-                                <form className="col 12" onSubmit={handleSubmit} >
+                                <form className="col 12" onSubmit={handleSubmit} onClick={infoError}>
                                 <div className="row">
                                     <div className="input-field col12">
                                         <input id="icon_name" type="text" className="validate form-control" onChange={e => setTitle(e.target.value)} autoComplete="off" />
@@ -100,9 +105,16 @@ const Publish = (props) => {
                                        
                                     </div>
                                 </div>
-                                
-                                                            
-                                <button className="btn waves-effect waves-light forms-btn black" type="submit" name="action">Send
+                                <div className="valid-feedback">
+                                    We are publishing your post !
+                                    <div className="progress teal accent-3">
+                                        <div className="indeterminate"></div>
+                                    </div>
+                                </div>
+                                <div className="invalid-feedback">
+                                    Something is wrong, check your input !
+                                </div>                           
+                                <button className="btn waves-effect waves-light forms-btn black" type="submit" name="action">Post
                                         <i className="material-icons right">send</i>
                                     </button>
                                 </form>
