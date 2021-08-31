@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-const Publish = () => {
+const Publish = (props) => {
     const[title, setTitle] = useState('');
     const[content, setContent] = useState('');
-    const[user, setUser] = useState('');
+    const[user] = useState( props.id);
     const[main, setMain] = useState('');
     const[im2, setIm2] = useState('');
     const[im3, setIm3] = useState('');
@@ -16,7 +16,7 @@ const Publish = () => {
         let form_data = new FormData();
         form_data.append('title', title);
         form_data.append('content', content);
-        form_data.append('user', 1)
+        form_data.append('user', user)
         form_data.append('main_image', main, main.name);
         form_data.append('image_2', im2, im2.name);
         form_data.append('image_3', im3, im3.name);

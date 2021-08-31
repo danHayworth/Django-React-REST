@@ -41,7 +41,7 @@ const App =()=> {
             <Route exact path='/posts/:id' component={Post}/>
             <Route exact path='/register' component={Register}/>
             <Route exact path='/account/:id' component={()=> <Account id={id} />}/>
-            <Route exact path='/publish' component={Publish}/>
+            <Route exact path='/publish' component={()=> <Publish id={id} />}/>
           </div>
           </Switch>
         </Router>
