@@ -55,8 +55,8 @@ const Navbar = (props) => {
                     <Link className="nav-link navbar-item" aria-current="page" to={"/account/" + props.id}>{props.name}</Link>
                 </li> 
             <li className="nav-item">
-                <a class="btn-floating btn-large waves-effect waves-light turqoise" type="button" href="/publish">                                   
-                    <p class="addingBtn ">+</p>   
+                <a className="btn-floating btn-large waves-effect waves-light turqoise" type="button" href="/publish">                                   
+                    <p className="addingBtn ">+</p>   
                 </a>                               
             </li>
             </ul>

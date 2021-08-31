@@ -38,9 +38,9 @@ const Register =() =>{
     }
         return (
             <div className="forms">
-                <div class="card text-white bg-dark mb-3">
-                    <h5 class="card-header text-center">Register</h5>
-                    <div class="card-body bg-light">
+                <div className="card text-white bg-dark mb-3">
+                    <h5 className="card-header text-center">Register</h5>
+                    <div className="card-body bg-light">
                         <div className="container">
                             <div className="row">
                                 <form className="col 12" onSubmit={handleSubmit} onClick={infoError}>

@@ -23,16 +23,16 @@ export default class Posts extends Component {
 
     render(){       
         return(
-            <div class="row row-cols-1 row-cols-md-4 ">               
+            <div className="row row-cols-1 row-cols-md-4 ">               
                 {this.state.posts.map((post) => 
                 <>
-                <div class="col">
-                    <div key={post.id} class="card" style={{width: '18rem'}} >
-                        <img src={baseUrl + post.main_image} class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <h6 class="card-title">{post.title}</h6>
-                            <p class="card-text d-inline-block col-12 text-truncate ">{post.content}</p>
-                            <Link to={"" + post.id} key={post.id}><button class="btn btn-primary" >Read</button></Link>
+                <div className="col">
+                    <div key={post.id} className="card" style={{width: '18rem'}} >
+                        <img src={baseUrl + post.main_image} className="card-img-top" alt="..." />
+                        <div className="card-body">
+                            <h6 className="card-title">{post.title}</h6>
+                            <p className="card-text d-inline-block col-12 text-truncate ">{post.content}</p>
+                            <Link to={"" + post.id} key={post.id}><button className="btn btn-primary" >Read</button></Link>
                         </div>
                     </div>
                 </div>
