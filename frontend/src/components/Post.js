@@ -34,8 +34,7 @@ const Post = () => {
       .then((response) => {
         setPost(response.data);
       })
-    }, [id]
-      
+    }, [id]     
     );
     useEffect(() => {
       axios.get('http://localhost:8000/users/'+ post.user)
@@ -43,8 +42,24 @@ const Post = () => {
         setAuthor(response.data);
       })
     }, [id, post.user]
-      
     );
+    const deletePost = () => {
+      let confirmation = prompt('Please confirm by writing "delete"!');
+      if(confirmation === 'delete'){
+        fetch('http://localhost:8000/posts/'+ id, {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json'},
+          credentials: 'include',
+          body : id,
+        })
+        .then((response) => {
+          if(response.ok){
+            window.location.pathname = "/posts/";
+          }
+        })
+        .catch(err => console.log(err))
+      }
+    }
     let images = (
       <Carousel 
       responsive={responsive}
@@ -126,6 +141,10 @@ const Post = () => {
           <figcaption className="blockquote-footer card-text">
             {author.name}
           </figcaption>
+        </div>
+        <div class="card-footer border-success">
+        <button class="waves-effect red waves-light btn" onClick={deletePost}>Delete</button>
+        <button class="waves-effect waves-light btn">Edit</button>
         </div>
       </div>
     );
