@@ -18,6 +18,10 @@ const Publish = () => {
         form_data.append('content', content);
         form_data.append('user', 1)
         form_data.append('main_image', main, main.name);
+        form_data.append('image_2', im2, im2.name);
+        form_data.append('image_3', im3, im3.name);
+        form_data.append('image_4', im4, im4.name);
+        form_data.append('image_5', im5, im5.name)
         let url = "http://localhost:8000/posts/";
         axios.post(url, form_data, {
             headers: {'Content-Type': 'multipart/form-data'},

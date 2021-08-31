@@ -32,7 +32,7 @@ export default class Posts extends Component {
                         <div class="card-body">
                             <h6 class="card-title">{post.title}</h6>
                             <p class="card-text d-inline-block col-12 text-truncate ">{post.content}</p>
-                            <button class="btn btn-primary" ><Link to={"" + post.id} key={post.id}>Read</Link></button>
+                            <Link to={"" + post.id} key={post.id}><button class="btn btn-primary" >Read</button></Link>
                         </div>
                     </div>
                 </div>
