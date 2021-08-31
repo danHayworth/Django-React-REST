@@ -50,6 +50,8 @@ const Post = () => {
       responsive={responsive}
       swipeable={true}
       showDots={true}
+      containerClass = "imageCarousel"
+      itemClass = "imageItself"
       >
       <div className="imagesCard"><img src={baseUrl + post.main_image} className="card-img-top" alt="..." /></div>
       </Carousel>);
@@ -59,6 +61,8 @@ const Post = () => {
         responsive={responsive}
         swipeable={true}
         showDots={true}
+        containerClass = "imageCarousel"
+        itemClass = "imageItself"
         >
       <div className=" imagesCard"><img src={baseUrl + post.main_image}  alt="..." /></div>
       <div className=" imagesCard"><img src={baseUrl + post.image_2}  alt="..." /></div>
@@ -70,6 +74,8 @@ const Post = () => {
           responsive={responsive}
           swipeable={true}
           showDots={true}
+          containerClass = "imageCarousel"
+          itemClass = "imageItself"
           >
           <div className="imagesCard"><img src={baseUrl + post.main_image} className="card-img-top" alt="..." /></div>
           <div className="imagesCard"><img src={baseUrl + post.image_2} className="card-img-top" alt="..." /></div>
@@ -82,6 +88,8 @@ const Post = () => {
             responsive={responsive}
             swipeable={true}
             showDots={true}
+            containerClass = "imageCarousel"
+            itemClass = "imageItself"
             >
               <div className="imagesCard"><img src={baseUrl + post.main_image} className="card-img-top" alt="..." /></div>
               <div className="imagesCard"><img src={baseUrl + post.image_2} className="card-img-top" alt="..." /></div>
@@ -95,6 +103,8 @@ const Post = () => {
               responsive={responsive}
               swipeable={true}
               showDots={true}
+              containerClass = "imageCarousel"
+              itemClass = "imageItself"
               >
               <div className="imagesCard"><img src={baseUrl + post.main_image} className="card-img-top" alt="..." /></div>
               <div className="imagesCard"><img src={baseUrl + post.image_2} className="card-img-top" alt="..." /></div>

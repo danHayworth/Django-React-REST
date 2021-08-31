@@ -40,9 +40,6 @@ const Publish = (props) => {
                 window.location.replace('/posts/');
             }, 3000)
         )
-        .catch(
-            err => console.log(err),
-            document.querySelectorAll('.form-control').forEach(innerHtml => innerHtml.className += ' is-invalid'))
     }
     const infoError = async function(){
         document.querySelectorAll('.form-control').forEach(innerHtml => innerHtml.className = 'form-control');
@@ -73,7 +70,7 @@ const Publish = (props) => {
                                 <label>Main photo:</label>
                                     <div className="input-field col12">
                                         
-                                        <input type="file" accept="image/png, image/jpeg" className="validate form-control" id="inputGroupFile02" onChange={e => setMain(e.target.files[0])}/>
+                                        <input type="file" accept="image/png, image/jpeg" className=" form-control" id="inputGroupFile02" onChange={e => setMain(e.target.files[0])}/>
                                         
                                     </div>
                                 </div>

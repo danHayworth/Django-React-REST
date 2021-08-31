@@ -29,6 +29,7 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons{
 .card{
     border: none !important;
     border-radius: 10px !important;
+    margin-bottom: 100px !important;
 }
 .imagini{
     width: 100px !important;
@@ -49,10 +50,18 @@ a {
 .detailCard{
     margin: 0 auto;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 150px;
 }
 .main{
     position: relative;
     height: 500px; 
 
+}
+.imageCarousel{
+    height: 400px;
+}
+.imagesCard img{
+    width: 650px;
+    height: 400px;
+    object-fit:initial;
 }
