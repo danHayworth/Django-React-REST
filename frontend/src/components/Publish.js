@@ -51,7 +51,7 @@ const Publish = (props) => {
    
     return(
         <div className="">
-                <div className="card text-white bg-dark col-5 detailCard">
+                <div className="card text-white bg-dark col-4 detailCard">
                     <h5 className="card-header text-center">Add post</h5>
                     <div className="card-body bg-light">
                         <div className="container">
