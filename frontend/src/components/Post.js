@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 import axios from 'axios';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -143,7 +143,7 @@ const Post = () => {
         </div>
         <div class="card-footer border-success">
         <button class="waves-effect red waves-light btn" onClick={deletePost}>Delete</button>
-        <button class="waves-effect waves-light btn">Edit</button>
+        <Link class="waves-effect waves-light btn" to={"/posts/edit/" + id} key={id} >Edit</Link>
         </div>
       </div>
     );
