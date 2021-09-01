@@ -44,6 +44,10 @@ const Publish = (props) => {
     const infoError = async function(){
         document.querySelectorAll('.form-control').forEach(innerHtml => innerHtml.className = 'form-control');
     }
+    const showMore = () => {
+        document.getElementsByClassName("extra")[0].style.display = "block";
+        document.getElementsByClassName("extraBtn")[0].style.display = "none";
+    }
    
     return(
         <div className="">
@@ -52,7 +56,7 @@ const Publish = (props) => {
                     <div className="card-body bg-light">
                         <div className="container">
                             <div className="row">
-                                <form className="col 12" onSubmit={handleSubmit} onClick={infoError}>
+                                <form className="col 12" onSubmit={handleSubmit}>
                                 <div className="row">
                                     <div className="input-field col12">
                                         <input id="icon_name" type="text" className="validate form-control" onChange={e => setTitle(e.target.value)} autoComplete="off" />
@@ -68,12 +72,12 @@ const Publish = (props) => {
                                 </div>
                                 <div className="row">
                                 <label>Main photo:</label>
-                                    <div className="input-field col12">
-                                        
-                                        <input type="file" accept="image/png, image/jpeg" className=" form-control" id="inputGroupFile02" onChange={e => setMain(e.target.files[0])}/>
-                                        
+                                    <div className="input-field col12">                                       
+                                        <input type="file" accept="image/png, image/jpeg" className=" form-control" id="inputGroupFile02" onChange={e => setMain(e.target.files[0])}/>                                       
                                     </div>
                                 </div>
+                                <button type="button"   className="waves-effect waves-teal btn-flat extraBtn" onClick={showMore}>Add extra photos:</button>
+                                <div className="extra" style={{display: "none"}}>
                                 <div className="row">
                                 <label>Extra photo:</label>
                                     <div className="input-field col12">
@@ -102,6 +106,7 @@ const Publish = (props) => {
                                        
                                     </div>
                                 </div>
+                                </div>
                                 <div className="valid-feedback">
                                     We are publishing your post !
                                     <div className="progress teal accent-3">
@@ -111,7 +116,7 @@ const Publish = (props) => {
                                 <div className="invalid-feedback">
                                     Something is wrong, check your input !
                                 </div>                           
-                                <button className="btn waves-effect waves-light forms-btn black" type="submit" name="action">Post
+                                <button className="btn waves-effect waves-light forms-btn black" type="submit" name="action" onClick={infoError}>Post
                                         <i className="material-icons right">send</i>
                                     </button>
                                 </form>

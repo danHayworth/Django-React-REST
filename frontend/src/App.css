@@ -69,3 +69,8 @@ a {
     height: 400px;
     object-fit:initial;
 }
+.extraBtn{
+    display: flex;
+    margin-bottom: 50px;
+    color:crimson;
+}
