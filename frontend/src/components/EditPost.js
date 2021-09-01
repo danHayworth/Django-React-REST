@@ -17,8 +17,8 @@ const EditPost = () => {
     useEffect(() => {
         axios.get('http://localhost:8000/posts/' + id)
         .then((response) =>{
-            console.log(response.data);
             setPost(response.data);
+            setUser(post.user);
         })
     }, [id])
 
@@ -59,7 +59,6 @@ const EditPost = () => {
         document.getElementsByClassName("extra")[0].style.display = "block";
         document.getElementsByClassName("extraBtn")[0].style.display = "none";
     }
-
     return(
         <div className="">
                 <div className="card text-white bg-dark col-4 detailCard">
@@ -69,16 +68,15 @@ const EditPost = () => {
                             <div className="row">
                                 <form className="col 12" onSubmit={handleSubmit}>
                                 <div className="row">
+                                    <label>Title</label>
                                     <div className="input-field col12">
-                                        <input id="icon_name" type="text" className="validate form-control" onChange={e => setTitle(e.target.value)} autoComplete="off" value={post.title} />
-                                        <label forhtml="icon_name">Title</label>
+                                        <input id="icon_name" type="text" className="validate form-control" onChange={e => setTitle({title : e.target.value})} autoComplete="off" value={post.title} />                                       
                                     </div>
                                 </div>
                                 <div className="row">
+                                    <label>Content</label>
                                     <div className="input-field col12">
-                                        <textarea id="textarea1" className="materialize-textarea validate form-control" onChange={e => setContent(e.target.value)} value={post.content}></textarea>
-                                        <label forhtml="textarea1">Content</label>
-                                        
+                                        <textarea id="textarea1" value={post.content} className="materialize-textarea validate form-control" onChange={e => setContent(e.target.value)} ></textarea>                                                                               
                                     </div>
                                 </div>
                                 <div className="row">
@@ -92,29 +90,25 @@ const EditPost = () => {
                                 <div className="row">
                                 <label>Extra photo:</label>
                                     <div className="input-field col12">
-                                        <input type="file" accept="image/png, image/jpeg" className="form-control" id="inputGroupFile02" onChange={e => setIm2(e.target.files[0])}/>
-                                       
+                                        <input type="file" accept="image/png, image/jpeg" className="form-control" id="inputGroupFile02" onChange={e => setIm2(e.target.files[0])}/>                                      
                                     </div>
                                 </div>
                                 <div className="row">
                                 <label>Extra photo:</label>
                                     <div className="input-field col12">
-                                        <input type="file" accept="image/png, image/jpeg" className="form-control" id="inputGroupFile02" onChange={e => setIm3(e.target.files[0])}/>
-                                       
+                                        <input type="file" accept="image/png, image/jpeg" className="form-control" id="inputGroupFile02" onChange={e => setIm3(e.target.files[0])}/>                                      
                                     </div>
                                 </div>
                                 <div className="row">
                                 <label>Extra photo:</label>
                                     <div className="input-field col12">
-                                        <input type="file" accept="image/png, image/jpeg" className="form-control" id="inputGroupFile02" onChange={e => setIm4(e.target.files[0])}/>
-                                       
+                                        <input type="file" accept="image/png, image/jpeg" className="form-control" id="inputGroupFile02" onChange={e => setIm4(e.target.files[0])}/>                                     
                                     </div>
                                 </div>
                                 <div className="row">
                                 <label>Extra photo:</label>
                                     <div className="input-field col12">
-                                        <input type="file" accept="image/png, image/jpeg" className="form-control" id="inputGroupFile02" onChange={e => setIm5(e.target.files[0])}/>
-                                       
+                                        <input type="file" accept="image/png, image/jpeg" className="form-control" id="inputGroupFile02" onChange={e => setIm5(e.target.files[0])}/>                                      
                                     </div>
                                 </div>
                                 </div>
