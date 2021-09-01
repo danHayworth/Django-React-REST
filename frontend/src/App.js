@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Posts from './components/Posts';
 import Post from './components/Post';
+import EditPost from './components/EditPost';
 import Publish from './components/Publish';
 import Account from './components/Account';
 import Register from './components/Register';
@@ -37,6 +38,7 @@ const App =()=> {
             <Route exact path='/login' component={()=> <Login setName={setName}/>}/>
             <Route exact path='/posts' component={Posts}/>
             <Route exact path='/posts/:id' component={Post}/>
+            <Route exact path='/posts/edit/:id' component={EditPost}/>
             <Route exact path='/register' component={Register}/>
             <Route exact path='/account/:id' component={()=> <Account id={id} />}/>
             <Route exact path='/publish' component={()=> <Publish id={id} />}/>

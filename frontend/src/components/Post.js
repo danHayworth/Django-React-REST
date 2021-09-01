@@ -4,7 +4,6 @@ import axios from 'axios';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-const baseUrl = "http://localhost:8000";
 const Post = () => {
     const { id } = useParams();
     const [post, setPost] = useState('');
@@ -68,7 +67,7 @@ const Post = () => {
       containerClass = "imageCarousel"
       itemClass = "imageItself"
       >
-      <div className="imagesCard"><img src={baseUrl + post.main_image} className="card-img-top" alt="..." /></div>
+      <div className="imagesCard"><img src={post.main_image} className="card-img-top" alt="..." /></div>
       </Carousel>);
     if(post.image_2 !== null){
       images = (
@@ -79,8 +78,8 @@ const Post = () => {
         containerClass = "imageCarousel"
         itemClass = "imageItself"
         >
-      <div className=" imagesCard"><img src={baseUrl + post.main_image}  alt="..." /></div>
-      <div className=" imagesCard"><img src={baseUrl + post.image_2}  alt="..." /></div>
+      <div className=" imagesCard"><img src={post.main_image}  alt="..." /></div>
+      <div className=" imagesCard"><img src={post.image_2}  alt="..." /></div>
       </Carousel>
       );
       if(post.image_3 !== null){
@@ -92,9 +91,9 @@ const Post = () => {
           containerClass = "imageCarousel"
           itemClass = "imageItself"
           >
-          <div className="imagesCard"><img src={baseUrl + post.main_image} className="card-img-top" alt="..." /></div>
-          <div className="imagesCard"><img src={baseUrl + post.image_2} className="card-img-top" alt="..." /></div>
-          <div className="imagesCard"><img src={baseUrl + post.image_3} className="card-img-top" alt="..." /></div>
+          <div className="imagesCard"><img src={post.main_image} className="card-img-top" alt="..." /></div>
+          <div className="imagesCard"><img src={post.image_2} className="card-img-top" alt="..." /></div>
+          <div className="imagesCard"><img src={post.image_3} className="card-img-top" alt="..." /></div>
           </Carousel>
         );
         if(post.image_4 !== null){
@@ -106,10 +105,10 @@ const Post = () => {
             containerClass = "imageCarousel"
             itemClass = "imageItself"
             >
-              <div className="imagesCard"><img src={baseUrl + post.main_image} className="card-img-top" alt="..." /></div>
-              <div className="imagesCard"><img src={baseUrl + post.image_2} className="card-img-top" alt="..." /></div>
-              <div className="imagesCard"><img src={baseUrl + post.image_3} className="card-img-top" alt="..." /></div>
-              <div className="imagesCard"><img src={baseUrl + post.image_4} className="card-img-top" alt="..." /></div>
+              <div className="imagesCard"><img src={post.main_image} className="card-img-top" alt="..." /></div>
+              <div className="imagesCard"><img src={post.image_2} className="card-img-top" alt="..." /></div>
+              <div className="imagesCard"><img src={post.image_3} className="card-img-top" alt="..." /></div>
+              <div className="imagesCard"><img src={post.image_4} className="card-img-top" alt="..." /></div>
             </Carousel>
           );
           if(post.image_5 !== null){
@@ -121,11 +120,11 @@ const Post = () => {
               containerClass = "imageCarousel"
               itemClass = "imageItself"
               >
-              <div className="imagesCard"><img src={baseUrl + post.main_image} className="card-img-top" alt="..." /></div>
-              <div className="imagesCard"><img src={baseUrl + post.image_2} className="card-img-top" alt="..." /></div>
-              <div className="imagesCard"><img src={baseUrl + post.image_3} className="card-img-top" alt="..." /></div>
-              <div className="imagesCard"><img src={baseUrl + post.image_4} className="card-img-top" alt="..." /></div>
-              <div className="imagesCard"><img src={baseUrl + post.image_5} className="card-img-top" alt="..." /></div>
+              <div className="imagesCard"><img src={post.main_image} className="card-img-top" alt="..." /></div>
+              <div className="imagesCard"><img src={post.image_2} className="card-img-top" alt="..." /></div>
+              <div className="imagesCard"><img src={post.image_3} className="card-img-top" alt="..." /></div>
+              <div className="imagesCard"><img src={post.image_4} className="card-img-top" alt="..." /></div>
+              <div className="imagesCard"><img src={post.image_5} className="card-img-top" alt="..." /></div>
               </Carousel>
             )
           }
