@@ -70,13 +70,13 @@ const EditPost = () => {
                                 <form className="col 12" onSubmit={handleSubmit}>
                                 <div className="row">
                                     <div className="input-field col12">
-                                        <input id="icon_name" type="text" className="validate form-control" onChange={e => setTitle(e.target.value)} autoComplete="off" />
+                                        <input id="icon_name" type="text" className="validate form-control" onChange={e => setTitle(e.target.value)} autoComplete="off" value={post.title} />
                                         <label forhtml="icon_name">Title</label>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="input-field col12">
-                                        <textarea id="textarea1" className="materialize-textarea validate form-control" onChange={e => setContent(e.target.value)}></textarea>
+                                        <textarea id="textarea1" className="materialize-textarea validate form-control" onChange={e => setContent(e.target.value)} value={post.content}></textarea>
                                         <label forhtml="textarea1">Content</label>
                                         
                                     </div>
@@ -84,7 +84,7 @@ const EditPost = () => {
                                 <div className="row">
                                 <label>Main photo:</label>
                                     <div className="input-field col12">                                       
-                                        <input type="file" accept="image/png, image/jpeg" className=" form-control" id="inputGroupFile02" onChange={e => setMain(e.target.files[0])}/>                                       
+                                        <input type="file" accept=".png, .jpeg, .jpg" className=" form-control" id="inputGroupFile02" onChange={e => setMain(e.target.files[0])}/>                                       
                                     </div>
                                 </div>
                                 <button type="button"   className="waves-effect waves-teal btn-flat extraBtn" onClick={showMore}>Add extra photos:</button>
