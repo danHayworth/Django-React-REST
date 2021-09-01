@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useParams} from 'react-router-dom';
 
 const EditPost = () => {
-    const { id } = useParams()
+    const { id } = useParams();
+    const [post, setPost] = useState('');
     const[title, setTitle] = useState('');
     const[content, setContent] = useState('');
     const[user, setUser] = useState('');
@@ -12,6 +13,14 @@ const EditPost = () => {
     const[im3, setIm3] = useState('');
     const[im4, setIm4] = useState('');
     const[im5, setIm5] = useState('');
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/posts/' + id)
+        .then((response) =>{
+            console.log(response.data);
+            setPost(response.data);
+        })
+    }, [id])
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -50,7 +59,7 @@ const EditPost = () => {
         document.getElementsByClassName("extra")[0].style.display = "block";
         document.getElementsByClassName("extraBtn")[0].style.display = "none";
     }
-    console.log(id)
+
     return(
         <div className="">
                 <div className="card text-white bg-dark col-4 detailCard">
