@@ -45,7 +45,7 @@ a {
     padding-bottom: 50px !important;
     
 }
-.card-footer button {
+.card-footer button, .linkBtn {
     float: right;
     margin-left: 50px !important;
     width: 100px;

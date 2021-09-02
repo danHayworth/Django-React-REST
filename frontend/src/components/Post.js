@@ -143,7 +143,7 @@ const Post = () => {
         </div>
         <div class="card-footer border-success">
         <button class="waves-effect red waves-light btn" onClick={deletePost}>Delete</button>
-        <Link class="waves-effect waves-light btn" to={"/posts/edit/" + id} key={id} >Edit</Link>
+        <Link class="waves-effect waves-light btn linkBtn" to={"/posts/edit/" + id} key={id} >Edit</Link>
         </div>
       </div>
     );
