@@ -25,9 +25,21 @@ const EditPost = () => {
     const handleSubmit = e => {
         e.preventDefault();
         let form_data = new FormData();
-        form_data.append('title', title);
-        form_data.append('content', content);
-        form_data.append('user', user)
+        if(title !== ""){
+            form_data.append('title', title);
+        }
+        else{
+            form_data.append('title', post.title);
+        }        
+        console.log(title)
+        if(content !== ""){
+            form_data.append('content', content);
+        }
+        else{
+            form_data.append('content', post.content);
+        }       
+        console.log(content)
+        form_data.append('user', post.user)
         if(main !== "") {
         form_data.append('main_image', main, main.name);}
         if(im2 !== ""){
@@ -38,13 +50,11 @@ const EditPost = () => {
             form_data.append('image_4', im4, im4.name);}
         if(im5 !== ""){
             form_data.append('image_5', im5, im5.name);}
-        let url = "http://localhost:8000/posts/";
-        axios.post(url, form_data, {
+        let url = "http://localhost:8000/posts/"+id;
+        console.log(form_data);
+        axios.put(url, form_data,{
             headers: {'Content-Type': 'multipart/form-data'},
         })
-        .then(res => {
-            console.log(res.data);
-          })
         .then(
             document.querySelectorAll('.form-control').forEach(innerHtml => innerHtml.className += ' is-valid'),
             setTimeout(() => {
@@ -70,13 +80,13 @@ const EditPost = () => {
                                 <div className="row">
                                     <label>Title</label>
                                     <div className="input-field col12">
-                                        <input id="icon_name" type="text" className="validate form-control" onChange={e => setTitle({title : e.target.value})} autoComplete="off" value={post.title} />                                       
+                                        <input id="icon_name" type="text" className="validate form-control" onChange={e => setTitle(e.target.value)} autoComplete="off" defaultValue={post.title} />                                       
                                     </div>
                                 </div>
                                 <div className="row">
                                     <label>Content</label>
                                     <div className="input-field col12">
-                                        <textarea id="textarea1" value={post.content} className="materialize-textarea validate form-control" onChange={e => setContent(e.target.value)} ></textarea>                                                                               
+                                        <textarea id="textarea1" defaultValue={post.content} className="materialize-textarea validate form-control" onChange={e => setContent(e.target.value)} ></textarea>                                                                               
                                     </div>
                                 </div>
                                 <div className="row">
