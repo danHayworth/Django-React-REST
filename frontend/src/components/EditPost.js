@@ -68,10 +68,7 @@ const EditPost = () => {
     const showMore = () => {
         document.getElementsByClassName("extra")[0].style.display = "block";
         document.getElementsByClassName("extraBtn")[0].style.display = "none";
-    }
-    let images = [post.main_image, post.image_2, post.image_3, post.image_4, post.image_5];
-
-    
+    }    
     return(
         <div className="">
                 <div className="card text-white bg-dark col-8 detailCard">
