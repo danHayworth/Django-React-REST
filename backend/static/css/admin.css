@@ -1,0 +1,43 @@
+.app-djstripe {
+    display: none !important;
+}
+.app-auth {
+    display: none !important;
+}
+#changelist #changelist-search img {
+    vertical-align: middle;
+    margin-right: 4px;
+    height: 15px;
+}
+.breadcrumbs {
+    background: none !important;
+}
+
+#header {
+    height: 100px;
+    background-color: #212529;
+}
+#header h1{
+    padding-left: 9px;
+    padding-bottom: 10px;
+}
+#header h2{
+    padding-top: 10px;
+}
+
+#content-related {
+    display: none !important;
+}
+
+
+#branding h1, #branding h2, #user-tools {
+    color: aliceblue !important;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: none !important;
+}
+
+#nav-sidebar .current-model {
+    background: none !important;
+}

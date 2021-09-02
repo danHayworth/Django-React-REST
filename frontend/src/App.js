@@ -15,10 +15,10 @@ const App =()=> {
   
   const [name, setName] = useState('');
   const [id, setId] = useState('');
-
   useEffect(() => {
     (
         async () => {
+           
             const response = await fetch('http://localhost:8000/user', {
                 headers: {'Content-Type': 'application/json'},
                 credentials: 'include',

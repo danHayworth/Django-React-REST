@@ -27,7 +27,10 @@ const Navbar = (props) => {
             </li> 
             <li className="nav-item">
                 <Link className="nav-link navbar-item" to="/register/">Register</Link>
-            </li> 
+            </li>
+            <li className="nav-item">
+                <a className="nav-link navbar-item" _blank="true" href="http://localhost:8000/admin">Admin</a>
+            </li>  
             </ul>
             </> 
         )     
@@ -47,6 +50,9 @@ const Navbar = (props) => {
                 </li>  
             </ul>
             <ul>
+            <li className="nav-item">
+                <a className="nav-link navbar-item" _blank="true" href="http://localhost:8000/admin">Admin</a>
+            </li> 
             <li className="nav-item">
                 <Link className="nav-link navbar-item" to="/logout/" onClick={logout}>Logout</Link>
             </li>
