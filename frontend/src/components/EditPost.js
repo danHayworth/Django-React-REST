@@ -69,9 +69,12 @@ const EditPost = () => {
         document.getElementsByClassName("extra")[0].style.display = "block";
         document.getElementsByClassName("extraBtn")[0].style.display = "none";
     }
+    let images = [post.main_image, post.image_2, post.image_3, post.image_4, post.image_5];
+
+    
     return(
         <div className="">
-                <div className="card text-white bg-dark col-4 detailCard">
+                <div className="card text-white bg-dark col-8 detailCard">
                     <h5 className="card-header text-center">Add post</h5>
                     <div className="card-body bg-light">
                         <div className="container">
@@ -88,7 +91,14 @@ const EditPost = () => {
                                     <div className="input-field col12">
                                         <textarea id="textarea1" defaultValue={post.content} className="materialize-textarea validate form-control" onChange={e => setContent(e.target.value)} ></textarea>                                                                               
                                     </div>
-                                </div>
+                                </div>                                
+                                    <div class="row row-cols-5">
+                                        <div className="col"><img src={post.main_image} alt="" style={{width:"150px", height:"100px"}} /></div>
+                                        <div className="col"><img src={post.image_2} alt="" style={{width:"150px", height:"100px"}} /></div>
+                                        <div className="col"><img src={post.image_3} alt="" style={{width:"150px", height:"100px"}} /></div>
+                                        <div className="col"><img src={post.image_4} alt="" style={{width:"150px", height:"100px"}} /></div>
+                                        <div className="col"><img src={post.image_5} alt="" style={{width:"150px", height:"100px"}} /></div>
+                                    </div>           
                                 <div className="row">
                                 <label>Main photo:</label>
                                     <div className="input-field col12">                                       
