@@ -8,11 +8,9 @@ from rest_framework.views import APIView
 import jwt
 import datetime
 from django.conf import settings
-from backend.authentication import Auth
 
 
 @api_view(['GET', 'POST'])
-@authentication_classes([Auth,])
 def user_list(request):
 
     if request.method == 'GET':
@@ -90,6 +88,7 @@ class LoginView(APIView):
 
 
 class UserView(APIView):
+
     def get(self, request):
         token = request.COOKIES.get('jwt')
 

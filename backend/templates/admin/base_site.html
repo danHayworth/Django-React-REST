@@ -7,6 +7,20 @@
  
 {% endblock %}
 
+{% block footer %}
+<style> 
+#row{
+    height: 50px !important;
+    text-align: center !important;
+    margin-top: 20px !important;
+}
+</style>
+<div id="row">
+    <a href='http://localhost:3000/' class="footer-link">Django & React API - SITE</a>
+</div>
+    
+{% endblock %}
+
 {% block extrastyle %}
 <link rel="stylesheet" href="{% static 'css/admin.css' %}" >
 {% endblock %}
